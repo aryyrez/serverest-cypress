@@ -1,0 +1,29 @@
+{
+  "name": "serverest-cypress",
+  "version": "1.0.0",
+  "description": "Automação de testes E2E (frontend) e de API da aplicação ServeRest com Cypress",
+  "scripts": {
+    "cy:open": "cypress open",
+    "test": "cypress run",
+    "test:front": "cypress run --spec \"cypress/e2e/frontend/**/*.cy.js\"",
+    "test:api": "cypress run --spec \"cypress/e2e/api/**/*.cy.js\""
+  },
+  "keywords": [
+    "cypress",
+    "qa",
+    "testes",
+    "automacao",
+    "e2e",
+    "api",
+    "serverest"
+  ],
+  "author": "Ary",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^10.6.0",
+    "cypress": "^16.2.0"
+  }
+}

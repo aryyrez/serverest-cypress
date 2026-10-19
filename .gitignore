@@ -1,0 +1,12 @@
+# Dependências
+node_modules/
+
+# Artefatos gerados pelo Cypress
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
+
+# Variáveis locais e sistema
+.env
+.DS_Store
+Thumbs.db

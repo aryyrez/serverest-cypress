@@ -1,0 +1,37 @@
+name: Testes Cypress
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  # Permite rodar manualmente pela aba Actions do GitHub
+  workflow_dispatch:
+  # Execução semanal (segunda-feira, 08h de Brasília) para detectar mudanças no ServeRest
+  schedule:
+    - cron: '0 11 * * 1'
+
+jobs:
+  cypress:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Instalar dependências e executar os testes
+        uses: cypress-io/github-action@v7
+        with:
+          browser: chrome
+
+      - name: Salvar screenshots das falhas
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots-falhas
+          path: cypress/screenshots
+          if-no-files-found: ignore
